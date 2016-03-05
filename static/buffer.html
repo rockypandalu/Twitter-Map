@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>Green Creative by Bryant Smith</title>
+</head>
+
+<body>
+    <div id="page">
+
+        <div id="header"></div>
+
+        <div class="contentText">
+            <br>
+            <div style="position:relative;z-index:1000;">
+            <div class="dropdown" style="margin-left:500px">
+                <button class="dropbtn">Key word</button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+            </div>
+            <br><br>
+        </div>
+    <div id="map"></div>
+    <script type="text/javascript">
+        var map, heatmap;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                                      zoom: 13,
+                                      center: {lat: 37.775, lng: -122.434},
+                                      mapTypeId: google.maps.MapTypeId.MAP
+                                      });
+
+                                      heatmap = new google.maps.visualization.HeatmapLayer({
+                                                                                           data: getPoints(),
+                                                                                           map: map
+                                                                                           });
+        }
+    // Heatmap data:
+    function getPoints() {
+        var ret = [];
+        var elasticsearch = require('elasticsearch');
+        var client = new elasticsearch.Client({
+            host: 'localhost:9200',
+            log: 'trace'
+        });
+        client.search({
+            index: 'test-index',
+            type: 'message',
+            body: {
+                query: {
+                match: {
+                        body: 'dinner'
+                }
+            }
+        }
+}).then(function (resp) {
+    ret.push(new google.maps.LatLng(resp.longitude, resp.latitude),)
+}, function (err) {
+    console.trace(err.message);
+});
+        return [
+
+                ];
+    }
+
+        </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN9f5NFFdbM2TOlBJSGyYYd_4dxfkhZxU&signed_in=true&libraries=visualization&callback=initMap">
+        </script>
+    <br><br>
+</div>
+<div id="footer"></div>
+</body>
+</html>

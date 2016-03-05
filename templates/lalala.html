@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<head>
+<script>
+    var geolocations = '{{geolocations}}';
+//    window.alert(geolocations);
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
+<title>Green Creative by Bryant Smith</title>
+</head>
+
+<body>
+    <div id="page">
+		
+        <div id="header"></div>
+        
+        <div class="contentText">
+            <br>
+            <div style="position:relative;z-index:1000;">
+            <div class="dropdown" style="margin-left:500px">
+                <button class="dropbtn"><a href="/">Key word</a></button>
+                <div class="dropdown-content">
+                    <a href="/good">good</a>
+                    <a href="/love">love</a>
+                    <a href="/dinner">dinner</a>
+                    <a href="/cat">cat</a>
+                    <a href="/dog">dog</a>
+                    <a href="/friend">friend</a>
+                    <a href="/twitter">twitter</a>
+                    <a href="/mom">mom</a>
+                    <a href="/bye">bye</a>
+                    <a href="/luck">luck</a>
+                </div>
+            </div>
+            </div>
+            <br><br>
+        </div>
+    <div id="map"></div>
+    <script type="text/javascript">
+        var heat=geolocations.split(",");
+//        geolocations = geolocations.substring(2,geolocations.length-2);
+//        geolocations = geolocations.split("],[");
+
+        var map, heatmap;
+
+        function initMap() {
+            var marker = null;
+            map = new google.maps.Map(document.getElementById('map'), {
+                                      zoom: 2,
+                                      center: {lat: 10, lng: 10},
+                                      mapTypeId: google.maps.MapTypeId.MAP
+                                      });
+                                      //window.alert(getPoints());
+                                      heatmap = new google.maps.visualization.HeatmapLayer({
+                                                                                           data: getPoints(),
+                                                                                           map: map
+                                                                                           });
+            map.addListener('click', function(e) {
+                if (!marker) {
+                        marker = new google.maps.Marker({
+                        position: {lat: e.latLng.lat(), lng: e.latLng.lng()},
+                        map: map
+                    });
+                }else {
+                    marker.setMap(null);
+                        marker = new google.maps.Marker({
+                        position: {lat: e.latLng.lat(), lng: e.latLng.lng()},
+                        map: map
+                    });
+                }
+                $.getJSON('/location', {
+                    lat: e.latLng.lat(),
+                    lng: e.latLng.lng()
+                }, function(data){
+                        $("#results").text(data.result);
+                        //window.alert(data.result);
+                    });
+                    return false;
+                });
+        }
+
+        function getPoints() {
+        var i;
+        var ret = [];
+        for (i=0;i<heat.length;i++) {
+            var newgeo=heat[i].split(" ");
+            ret.push(new google.maps.LatLng(parseFloat(newgeo[0]), parseFloat(newgeo[1])));
+        }
+        //window.alert(ret);
+        return ret;
+
+    }
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN9f5NFFdbM2TOlBJSGyYYd_4dxfkhZxU&signed_in=true&libraries=visualization&callback=initMap">
+        </script>
+    <br><br>
+        <div id="messages">
+            <!--<script>-->
+                <!--window.alert(result)-->
+                <!--for (i=0;i<result.length;i++){-->
+                    <!--document.write(result[i]);-->
+                <!--}-->
+                <!--</script>-->
+    <span id = "results">Click on the map to view nearby twitters</span>
+</div>
+</div>
+<div id="footer"></div>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+<!--<script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>-->
+</body>
+</html>

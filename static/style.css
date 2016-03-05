@@ -1,0 +1,326 @@
+/* A Free Design by Bryant Smith (bryantsmith.com) */
+
+html, body {
+text-align: center;
+}
+p {text-align: left;}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f5f4e9;
+	text-align: left;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #F1F5F8;
+	background-color:#dad8c8;
+}
+*
+{
+  margin: 0 auto 0 auto;
+ text-align:left;}
+
+#page
+{
+  margin: 0 auto 0 auto; 
+  margin-top:8px;
+  display: block; 
+  height:auto;
+  position: relative; 
+  overflow: hidden; 
+  background: #f5f4e9;
+  width: 1350px;
+}
+
+#header
+{
+background-image:url(header.png);
+background-repeat:no-repeat;
+height:113px;
+width:1350px;
+}
+
+#headerTitle
+{
+position:relative;
+left:30px;
+top:30px;
+color:#283823;
+text-align:left;
+font-size:34px;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+#headerSubText
+{
+position:relative;
+left:33px;
+top:30px;
+color:#679159;
+text-align:left;
+font-size:16px;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+
+#bar
+{
+background:#2b484f;
+background-repeat:no-repeat;
+height:30px;
+width:900px;
+line-height:30px;
+padding-left:10px;
+padding-right:0px;
+}
+
+#bar a
+{
+float: left;
+font-size:13px;
+background:#2b484f;
+color:#FFFFFF;
+margin-left:5px;
+margin-right:5px;
+height:30px;
+}
+
+#bar a:hover
+{
+text-shadow:0 0 0.5px #FFFFFF, 0 0 0.3px #FFFFFF, 0 0 0.1px #FFFFFF
+}
+
+#bar ul
+{
+background:#f5f4e9;
+height:30px;
+width:900px;
+line-height:30px;
+padding-left:0px;
+padding-right:0px;
+padding-top: 0;
+display:none;
+margin: 0;
+list-style-type: none;
+list-style-position:inside;
+margin:0;
+padding:0;
+color:#c5996b
+}
+
+#bar a:hover > ul
+{
+display:block;
+position:absolute;
+}
+
+
+#bar a ul li
+{
+float: left;
+color:#c5996b
+display:inline-block;
+font-size:13px;
+margin-left:5px;
+margin-right:5px;
+}
+
+#bar a ul li:hover
+{
+text-shadow:0 0 0.5px #c5996b, 0 0 0.3px #c5996b, 0 0 0.1px #c5996b
+}
+
+
+.contentTitle
+{
+width:676px;
+height:37px;
+margin-top:20px;
+margin-left:25px;
+margin-right:25px;
+background-image:url(tab_back.png);
+background-repeat:no-repeat;
+
+}
+
+.contentTitle h1
+{
+margin-left:21px;
+padding-top:8px;
+font-size:17px;
+font-weight:bold;
+color:#071027;
+}
+
+.comments
+{
+font-size:11px;
+font-style:italic;
+}
+
+.contentText
+{
+width:1200px;
+padding-left:30px;
+padding-right:30px;
+font-size:13px;
+color:#030712;
+line-height:30px;
+}
+
+a
+{
+text-decoration:none;
+color:#152413;
+}
+
+a:hover
+{
+color:#597A41;
+}
+
+
+#footer {
+width: 1350px;
+height:53px;
+background-image:url(footer.png);
+background-repeat:no-repeat;
+text-align:center;
+font-size:9px;
+color:#152413;
+padding-top:38px;
+}
+
+.topHeaderOrange
+	{
+	float: left;
+	line-height:18px;
+	margin-top:0px;
+	margin-right: 0px;
+	padding: 0px;
+	background:#f5f4e9;
+	height: 18px;
+
+	}
+	
+	#contentArea2
+	{
+	float: left;
+	line-height:18px;
+	margin-top:0px;
+	margin-right: 0px;
+	padding: 10px;
+	font-size:12px;
+	font-family:arial;
+	color:#be5d33;
+	 background-color: #f5f4e9;
+	
+	
+	}
+	
+	
+	
+
+.headerTitle
+	{
+	 
+	 
+	text-transform:uppercase;
+	font-weight:bold;
+
+	margin-top: 1px;
+	margin-left: 0px;
+	font-size:13px;
+	font-family:arial;
+	color:#be5d33;
+
+ 
+
+ 
+	}
+.left {
+padding-left:0;
+list-style:none;
+margin:2px 10px 0;
+color:#be5d33;
+line-height:25px;
+}
+
+.left li a{
+padding-left:20px;
+padding-bottom:15px;
+line-height:50px
+margin-bottom:15px;
+color:#be5d33 !important;
+}
+
+.left li:hover{
+color:#be5d33 !important;
+text-decoration:underline;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 160px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    height: 10px;
+    line-height: 10px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+#map { 
+    width: 1000px;
+    height: 600px;
+    background-color: #CCC;
+ }
+
+ #messages { 
+    width: 1000px;
+    height: 200px;
+    background-color: #fff;
+    color: #000000;
+    text-align: left;
+    overflow: scroll
+ }
