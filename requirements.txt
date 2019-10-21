@@ -5,5 +5,5 @@ MarkupSafe==0.23
 pyes==0.99.6
 six==1.10.0
 urllib3==1.14
-Werkzeug==0.11.4
+Werkzeug==0.15.3
 wheel==0.29.0
